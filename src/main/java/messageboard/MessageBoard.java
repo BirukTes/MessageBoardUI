@@ -1,7 +1,7 @@
 package messageboard;
 
 
-import uk.ac.gcu.bereketabgulai.topic.Topic;
+import topic.Topic;
 
 import java.util.ArrayList;
 import java.util.List;

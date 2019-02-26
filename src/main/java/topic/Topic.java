@@ -1,6 +1,6 @@
 package topic;
 
-import uk.ac.gcu.bereketabgulai.message.Message;
+import message.Message;
 
 import java.util.ArrayList;
 import java.util.Collections;

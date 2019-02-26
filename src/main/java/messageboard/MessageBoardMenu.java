@@ -1,8 +1,8 @@
 package messageboard;
 
-import uk.ac.gcu.bereketabgulai.topic.Topic;
-import uk.ac.gcu.bereketabgulai.topic.TopicMenu;
-import uk.ac.gcu.bereketabgulai.utility.Keyboard;
+import topic.Topic;
+import topic.TopicMenu;
+import utility.Keyboard;
 
 public class MessageBoardMenu {
 

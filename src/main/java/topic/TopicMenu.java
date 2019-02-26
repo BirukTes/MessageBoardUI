@@ -1,8 +1,8 @@
 package topic;
 
-import uk.ac.gcu.bereketabgulai.message.Message;
-import uk.ac.gcu.bereketabgulai.utility.Keyboard;
 
+import message.Message;
+import utility.Keyboard;
 
 public class TopicMenu {
     Topic topic;
