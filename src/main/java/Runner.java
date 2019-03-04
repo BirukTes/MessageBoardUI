@@ -4,6 +4,7 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import servlet.MessageBoardServlet;
 
 public class Runner {
     @SuppressWarnings("unused")
@@ -26,15 +27,11 @@ public class Runner {
         //the root is mapped to
         ServletContextHandler handler = new ServletContextHandler(server, "/", ServletContextHandler.SESSIONS);
         handler.setContextPath("/");
-        handler.setInitParameter("org.eclipse.jetty.servlet.Default." + "resourceBase", "src/main/resources/webapp");
+        handler.setInitParameter("org.eclipse.jetty.servlet.Default." + "resourceBase", "src/main/resources/");
 
-//        //instantiating DemoServlet, see class DemoServlet, and defining the requests that this responds to
-//        //and adding it to the server
-//        DemoServlet demoServlet = new DemoServlet(shopName);
-//        handler.addServlet(new ServletHolder(demoServlet), "/shop/*");
-//
-//        TestServlet testing = new TestServlet(shopName);
-//        handler.addServlet(new ServletHolder(testing), "/test/*");
+        //instantiating DemoServlet, see class DemoServlet, and defining the requests that this responds to
+        MessageBoardServlet messageBoardServlet = new MessageBoardServlet();
+        handler.addServlet(new ServletHolder(messageBoardServlet), "/messageboard/*");
 
         //instantiating DefaultServlet and setting the requests that it responds to
         //and adding it to the server

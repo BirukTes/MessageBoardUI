@@ -73,5 +73,4 @@ public class TopicMenu {
             }
         } while (option != 5);
     }
-
 }
