@@ -33,4 +33,9 @@ public class BaseServlet extends HttpServlet {
             response.setHeader("Cache-Control", "public, no-transform, max-age=" + seconds);
         }
     }
+
+    protected void showView(HttpServletResponse response, String templateName, Object model) throws IOException {
+        String html = mustache.render(templateName, model);
+        issue(HTML_UTF_8, HttpServletResponse.SC_OK, html.getBytes(CHARSET_UTF8), response);
+    }
 }
