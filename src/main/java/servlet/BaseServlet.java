@@ -3,6 +3,7 @@ package servlet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import utility.MustacheRender;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,7 @@ public class BaseServlet extends HttpServlet {
     public static final  String PLAIN_TEXT_UTF_8 = "text/plain; charset=UTF-8";
     public static final Charset CHARSET_UTF8 = Charset.forName("UTF-8");
     public static final String HTML_TEXT_UTF_8 = "text/html; charset=UTF-8";
+
 
     protected BaseServlet() {
     }
@@ -34,8 +36,8 @@ public class BaseServlet extends HttpServlet {
         }
     }
 
-    protected void showView(HttpServletResponse response, String templateName, Object model) throws IOException {
-        String html = mustache.render(templateName, model);
-        issue(HTML_UTF_8, HttpServletResponse.SC_OK, html.getBytes(CHARSET_UTF8), response);
+    protected void showView(HttpServletResponse response, String template, Object model) throws IOException {
+        String html = new MustacheRender().getCompiledTemplate(template, model);
+        issue(HTML_TEXT_UTF_8, HttpServletResponse.SC_OK, html.getBytes(CHARSET_UTF8), response);
     }
 }

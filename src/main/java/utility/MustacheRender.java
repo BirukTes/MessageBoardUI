@@ -14,24 +14,24 @@ public class MustacheRender {
     @SuppressWarnings("unused")
     static final Logger LOGGER = LoggerFactory.getLogger(MustacheRender.class);
 
-    private static final String DEFAULT_TEMPLATE = "template.mustache";
+    private static final String TEMPLATE_DIRECTORY = "messageboard";
     private MustacheFactory mustacheFactory;
 
     // Default constructor
     public MustacheRender() {
-        this(DEFAULT_TEMPLATE);
+        this(TEMPLATE_DIRECTORY);
     }
 
-    public MustacheRender(String template) {
-        mustacheFactory = new DefaultMustacheFactory(template);
+    public MustacheRender(String templateDirectory) {
+        mustacheFactory = new DefaultMustacheFactory(templateDirectory);
     }
 
 
-    public String getHTML(String template, Object model) {
+    public String getCompiledTemplate(String template, Object model) {
         StringWriter writer = new StringWriter();
 
         try {
-            Mustache mustache = mustacheFactory.compile("/messageboard/" + template);
+            Mustache mustache = mustacheFactory.compile(template);
             mustache.execute(writer, model).flush();
         } catch (IOException ioe) {
             throw new RuntimeException(ioe);

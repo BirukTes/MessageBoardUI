@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class MessageBoardServlet extends BaseServlet {
-private MessageBoard messageBoard;
+    private MessageBoard messageBoard;
 
     public MessageBoardServlet() {
         messageBoard = new MessageBoard("simple test");
@@ -17,7 +17,6 @@ private MessageBoard messageBoard;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String html = new MustacheRender("MessageBoard.mustache", M)
-        issue(PLAIN_TEXT_UTF_8, HttpServletResponse.SC_OK, toPrint.getBytes(CHARSET_UTF8), response);
+       showView(response, "messageboard.mustache", messageBoard);
     }
 }
